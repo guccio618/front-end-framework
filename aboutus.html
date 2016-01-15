@@ -26,7 +26,8 @@
     <![endif]-->
 </head>
 
-<body>   
+<!----------------- week3 exercise2 add scrollspy ----------------->
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="200">  
      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">                
                  <div class="navbar-header">
@@ -63,6 +64,7 @@
                         <li><a href="contactus.html#"><i class="fa fa-envelope-o"></i> Contact </a></li>
                     </ul>
                     
+<!--
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
                             <label class="sr-only" for="email">Email address</label>
@@ -78,10 +80,47 @@
                         </div>
                         <botton type="submit" class="btn btn-info"> Sign in </botton>
                     </form>
-                    
+-->
+                
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-toggle="modal" data-target="#loginModal"> <!-- used to invoke the modal -->
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                        </li>
+                    </ul>    
                 </div>
             </div>
-    </nav>   
+    </nav>  
+    
+    <div id="loginModal" class="modal fade" role="dialog">   <!-- fade: means it will fade when click -->
+        <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button> <!-- close the modal -->
+                <h4 class="modal-title">Login </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="email">Email address</label>
+                        <input type="email " class="form-control input-sm" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="password">Password</label>
+                        <input type="password " class="form-control input-sm" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label class="label">
+                        <input type="checkbox"> Remember me</label>
+                    </div>
+                    <botton type="submit" class="btn btn-info"> Sign in </botton>
+                    <button type="button" class="btn btn-default btn-sm"
+                       data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <header class="jumbotron">
 
@@ -103,8 +142,11 @@
     </header>
 
     <div class="container">
-        <div>
-            <div>
+        <div class="row">
+        <div class="col-xs-12 col-sm-10">
+            
+        <div class="row">
+            <div class="col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="index.html#">Home</a></li>
                     <li class="active">About Us</li>
@@ -120,7 +162,7 @@
             <div>
                 <p style="padding:10px;"></p>
             </div>
-            <div class="col-xs-12 col-sm-8">
+            <div id="history" class="col-xs-12 col-sm-6 col-lg-8">
                 <h2>Our History</h2>
                 <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
                     <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
@@ -139,7 +181,7 @@
             <!-------------------------------------------------------------->       
             </div>
         <!---------------- week2 exercise2: add panel ------------------>
-            <div class="col-xs-12 col-sm-4">
+            <div class="col-xs-12 col-sm-6 col-lg-4">
                  <div class="panel panel-primary">
                     <div class="panel-heading">       <!-- panel will have heading, body and footer -->
                         <h3 class="panel-title">Facts At a Glance</h3>
@@ -164,26 +206,140 @@
             </div>
         </div>
 
-        <div class="row row-content">
-            <div class="col-xs-12 col-sm-9">
+        <div id="corporate" class="row row-content">
+            <div class="col-xs-12">
                 <h2>Corporate Leadership</h2>
-                <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
-                <p>Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
-                <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
-                <p>Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
-                <h3>Agumbe Tang <small>Chief Taste Officer</small></h3>
-                <p>Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>
-                <h3>Alberto Somayya <small>Executive Chef</small></h3>
-                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>
+            <!----------------- week3 exercise2 add panels ----------------->    
+                <div class="panel-group" id="accordion"
+                      role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingPeter">
+                            <h3 class="panel-title">        <!-- turn into h3 style -->
+                                <a role="button" data-toggle="collapse"
+                                     data-parent="#accordion" href="#peter"
+                                     aria-expanded="true" aria-controls="peter">
+                                    Peter Pan <small>Chief Epicurious Officer</small></a>
+                            </h3>
+                        </div>                          <!-- "in"在这里表示默认是展开的 -->
+                        <div role="tabpanel" class="panel-collapse collapse in"  
+                             id="peter"    aria-labelledby="headingPeter">
+                            <div class="panel-body">
+                                <p>Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingDanny">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion" href="#danny"
+                                     aria-expanded="false" aria-controls="danny">
+                                    Dhanasekaran Witherspoon <small>Chief Food Officer</small></a>
+                            </h3>
+                        </div>
+                        <div role="tabpanel" class="panel-collapse collapse"
+                             id="danny"    aria-labelledby="headingDanny">
+                            <div class="panel-body">
+                                <p>Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingAgumbe">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion" href="#agumbe"
+                                     aria-expanded="false" aria-controls="agumbe">
+                                    Agumbe Tang <small>Chief Taste Officer</small></a>
+                            </h3>
+                        </div>
+                        <div role="tabpanel" class="panel-collapse collapse"
+                             id="agumbe"    aria-labelledby="headingAgumbe">
+                            <div class="panel-body">
+                                <p>Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingAlberto">
+                            <h3 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse"
+                                     data-parent="#accordion" href="#alberto"
+                                     aria-expanded="false" aria-controls="alberto">
+                                    Alberto Somayya <small>Executive Chef</small></a>
+                            </h3>
+                        </div>
+                        <div role="tabpanel" class="panel-collapse collapse"
+                             id="alberto"    aria-labelledby="headingAlberto">
+                            <div class="panel-body">
+                                <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--------------------------------------------------------------->    
+                
+                
+            <!----------------- week3 exercise1 add tabs and pills ----------------->
+            <!--    <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#peter" aria-controls="peter"
+                        role="tab" data-toggle="tab">Peter Pan, CEO</a></li>
+                    <li role="presentation"><a href="#danny"
+                        aria-controls="danny" role="tab"
+                        data-toggle="tab">Danny Witherspoon, CFO</a></li>
+                    <li role="presentation"><a href="#agumbe"
+                        aria-controls="agumbe" role="tab"
+                        data-toggle="tab">Agumbe Tang, CTO</a></li>
+                    <li role="presentation"><a href="#alberto"
+                        aria-controls="alberto" role="tab"
+                        data-toggle="tab">Alberto Somayya, Exec. Chef</a></li>
+                </ul>
+                
+                ** Tab panes
+                <div class="tab-content">
+                    ** fade: when introduce some transactions, it will fade in
+                    ** in active: it will default open when open this webpage 
+                    <div role="tabpanel" class="tab-pane fade in active" id="peter">
+                        <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
+                        <p>Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections.</p>
+                    </div> 
+                    <div role="tabpanel" class="tab-pane fade" id="danny">
+                        <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
+                        <p>Our CFO, Danny, as he is affectionately referred to by his colleagues, comes from a long established family tradition in farming and produce. His experiences growing up on a farm in the Australian outback gave him great appreciation for varieties of food sources. As he puts it in his own words, <em>Everything that runs, wins, and everything that stays, pays!</em></p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="agumbe">
+                        <h3>Agumbe Tang <small>Chief Taste Officer</small></h3>
+                        <p>Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, <em>You click only if you survive my lick.</em></p>    
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="alberto">
+                        <h3>Alberto Somayya <small>Executive Chef</small></h3>
+                        <p>Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, <em>Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!</em></p>    
+                    </div>
+                </div>
+                -->
+             <!---------------------------------------------------------------------->
+                
+                    <!--
+                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                        <li> About </li>
+                        <li> Products </li>
+                        <li class="disabled"><a href="#contact">Contact</a></li> "this option will be  disable" 
+                    </ul>
+                    -->
+                
+                
+                   
+
             </div>
-             <div>
+            <div>
                 <p style="padding:20px;"></p>
             </div>
         </div>
         
     <!---------------- week2 exercise2: add table ------------------>
-        <div class="row row-content">
-            <div class="col-xs-12 col-sm-9">
+        <div id="facts" class="row row-content">
+            <div class="col-xs-12">
                 <h2>Facts &amp; Figures</h2>
                 <!-- make the table reponsiable, if table needs extra space 
                 then we will be, able to horizontally scroll the table -->
@@ -223,11 +379,20 @@
                 </table>
                 </div>
             </div>
-             <div class="col-xs-12 col-sm-3">
-                <p style="padding:20px;"></p>
+            </div> 
+    <!-------------------------------------------------------------->  
+        
             </div>
-       </div> 
-    <!-------------------------------------------------------------->    
+            <!-- this part shows the nav which used together with scrollsky -->
+            <nav class="hidden-xs col-sm-2" id="myScrollspy"> <!-- hidden-xs: means this nav is going to be hidden when being viewing on an extra small screen  -->
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="400">
+                    <li><a href="#history">Our History</a></li>   <!-- it connect with id=history, and affix will taken to fixed the scroll -->
+                    <li><a href="#corporate">Corporate</a></li>
+                    <li><a href="#facts">Facts</a></li>
+                </ul>
+            </nav>        
+        </div>
+    
     </div>
 
     <footer class="row-footer">
